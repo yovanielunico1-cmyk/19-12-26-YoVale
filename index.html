@@ -8,11 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--forest:#183d31;--deep:#102c24;--sage:#9aa88c;--cream:#faf9f4;--gold:#b58c50}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--forest);font-family:Montserrat,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--forest);font-family:Montserrat,sans-serif;font-size:16px}
+img,video,iframe,embed,object{max-width:100%}img,video{height:auto}
 .hero{min-height:100svh;background:radial-gradient(ellipse at 50% 40%,#315b49,#102d25 78%);display:grid;place-items:center;padding:28px 12px;color:#f7f4e9;overflow:hidden}
 .hero-inner{width:min(900px,100%);text-align:center}
 .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#e1dcc8}
-.envelope{display:block;width:min(760px,98vw);margin:24px auto 18px;padding:0;border:0;background:transparent;cursor:pointer;line-height:0;filter:drop-shadow(0 18px 25px #0006);transition:transform .5s ease}
+.envelope{display:block;width:min(760px,98vw);max-width:100%;min-width:44px;min-height:44px;margin:24px auto 18px;padding:0;border:0;background:transparent;cursor:pointer;line-height:0;filter:drop-shadow(0 18px 25px #0006);transition:transform .5s ease}
 .envelope img{display:block;width:100%;height:auto;border-radius:3px}
 .envelope:focus-visible{outline:2px solid #d9c58c;outline-offset:7px}
 .envelope.opened{transform:scale(1.015)}
@@ -34,6 +35,24 @@ main{width:100%;padding:0 12px 48px}
 .footer{background:var(--deep);color:#e9e8dc;text-align:center;padding:38px 15px}
 .footer .script{color:#d6d9c9}.footer small{font-size:9px;letter-spacing:.16em}
 @media(max-width:520px){.hero{padding:20px 5px}main{padding:0 5px 35px}.art-piece{margin-bottom:18px}.intro{padding-top:42px}}
+/* Keep the desktop composition; give phone text and controls room to breathe. */
+@media(max-width:767px){
+ body{line-height:1.5;overflow-wrap:anywhere}
+ .hero-inner,main,section{min-width:0}
+ .eyebrow,.tap,.kicker,.countdown span,.button,.footer small{font-size:16px}
+ .eyebrow,.tap,.kicker,.button,.footer small{letter-spacing:.08em}
+ .eyebrow,.kicker,.footer small{line-height:1.6}
+ .tap{max-width:100%;line-height:1.5}
+ .countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:520px}
+ .countdown div{min-width:0}
+ .countdown span{letter-spacing:0}
+ .actions{display:flex;flex-direction:column;align-items:center;gap:16px;padding-inline:16px}
+ .button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;width:100%;max-width:360px;margin:0;text-align:center;line-height:1.5}
+ .footer small{display:block;margin-top:12px}
+}
+@media(max-width:480px){
+ .countdown{grid-template-columns:repeat(2,minmax(0,1fr));max-width:320px;gap:20px 16px}
+}
 </style>
 </head>
 <body>
